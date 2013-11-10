@@ -1,0 +1,6 @@
+<ehcache>
+    <defaultCache maxElementsInMemory="100" eternal="false" overflowToDisk="false" memoryStoreEvictionPolicy="LFU"/>
+
+    <cache name="share" maxElementsInMemory="5000"
+           eternal="false" overflowToDisk="false" timeToLiveSeconds="600" memoryStoreEvictionPolicy="LFU" />
+</ehcache>

@@ -1,9 +1,11 @@
 package org.devshred.hazelcast.controller;
 
 import org.devshred.hazelcast.config.WebAppConfig;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -16,25 +18,24 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
+
+@ContextConfiguration(classes = WebAppConfig.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = WebAppConfig.class)
 public class WebAppTest {
-    private MockMvc mockMvc;
+	private MockMvc mockMvc;
 
-    @SuppressWarnings("SpringJavaAutowiringInspection")
-    @Autowired
-    protected WebApplicationContext wac;
+	@Autowired
+	@SuppressWarnings("SpringJavaAutowiringInspection")
+	protected WebApplicationContext wac;
 
-    @Before
-    public void setup() {
-        this.mockMvc = webAppContextSetup(this.wac).build();
-    }
+	@Before
+	public void setup() {
+		this.mockMvc = webAppContextSetup(this.wac).build();
+	}
 
-    @Test
-    public void list() throws Exception {
-        mockMvc.perform(get("/"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("list"));
-    }
+	@Test
+	public void list() throws Exception {
+		mockMvc.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("list"));
+	}
 }

@@ -1,19 +1,20 @@
 package org.devshred.hazelcast.services;
 
-import org.devshred.hazelcast.persistence.Share;
-
 import java.util.List;
 
+import org.devshred.hazelcast.persistence.Share;
+
+
 public interface StockService {
-    List<Share> findAll();
+	List<Share> findAll();
 
-    Share findByMic(String stock);
+	Share findByMic(String stock);
 
-    Share findOrCreate(String mic);
+	Share findOrCreate(String mic);
 
-    Share save(Share share);
+	Share save(Share share);
 
-    Share updateQuote(String mic, int quote);
+	Share updateQuote(String mic, int quote);
 
-    void initDb();
+	void initDb();
 }

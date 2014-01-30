@@ -1,7 +1,6 @@
 <html>
     <head>
-        <title></title>
-        <!-- CSS goes in the document HEAD or added to your external stylesheet -->
+        <title>Shares and more</title>
         <style type="text/css">
             table.gridtable {
                 font-family: verdana,arial,sans-serif;

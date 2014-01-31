@@ -27,6 +27,8 @@ public class JpaHibernateConfiguration {
 	private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "hibernate.dialect";
 	private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
 	private static final String PROPERTY_NAME_HIBERNATE_HBM2DLL_AUTO = "hibernate.hbm2ddl.auto";
+	private static final String PROPERTY_NAME_HIBERNATE_STATISTICS = "hibernate.generate_statistics";
+	private static final String PROPERTY_NAME_HIBERNATE_2ND_LV_CACHE = "hibernate.cache.use_second_level_cache";
 	private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "entitymanager.packages.to.scan";
 
 	@Autowired
@@ -53,6 +55,8 @@ public class JpaHibernateConfiguration {
 		properties.put(PROPERTY_NAME_HIBERNATE_DIALECT, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
 		properties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
 		properties.put(PROPERTY_NAME_HIBERNATE_HBM2DLL_AUTO, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_HBM2DLL_AUTO));
+		properties.put(PROPERTY_NAME_HIBERNATE_STATISTICS, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_STATISTICS));
+		properties.put(PROPERTY_NAME_HIBERNATE_2ND_LV_CACHE, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_2ND_LV_CACHE));
 		return properties;
 	}
 

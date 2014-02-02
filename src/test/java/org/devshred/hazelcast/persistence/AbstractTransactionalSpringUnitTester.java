@@ -6,23 +6,23 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 
-public class AbstractTransactionalSpringUnitTester {
+public abstract class AbstractTransactionalSpringUnitTester {
 	@Autowired
 	private PlatformTransactionManager transactionManager;
 
 	private TransactionStatus transactionStatus;
 
-	void beginTransaction() throws Exception {
+	void beginTransaction() {
 		transactionStatus = transactionManager.getTransaction(new DefaultTransactionDefinition());
 	}
 
-	void commitTransaction() throws Exception {
+	void commitTransaction() {
 		if (transactionManager != null) {
 			transactionManager.commit(transactionStatus);
 		}
 	}
 
-	void rollBackTransaction() throws Exception {
+	void rollBackTransaction() {
 		if (transactionManager != null) {
 			transactionManager.rollback(transactionStatus);
 		}

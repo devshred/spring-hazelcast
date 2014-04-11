@@ -1,12 +1,18 @@
 package org.devshred.hazelcast.persistence;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.devshred.hazelcast.config.DatabaseTestConfiguration;
 import org.devshred.hazelcast.config.JpaHibernateConfiguration;
+
 import org.hibernate.Session;
 import org.hibernate.stat.SessionStatistics;
 import org.hibernate.stat.Statistics;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -14,18 +20,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import static org.devshred.hazelcast.config.Profiles.EHCACHE;
 import static org.devshred.hazelcast.persistence.HibernateUtils.getHibernateSession;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 
 
 @ActiveProfiles(EHCACHE)
-@ContextConfiguration(classes = {DatabaseTestConfiguration.class, JpaHibernateConfiguration.class})
+@ContextConfiguration(classes = { DatabaseTestConfiguration.class, JpaHibernateConfiguration.class })
 @RunWith(SpringJUnit4ClassRunner.class)
 @TransactionConfiguration(defaultRollback = true)
 @Transactional
@@ -39,7 +43,7 @@ public class ShareRepositoryTest extends AbstractTransactionalSpringUnitTester {
 	ShareRepository repository;
 
 	@PersistenceContext
-	EntityManager entityManager;
+	private EntityManager entityManager;
 
 	@Test
 	public void findAll() {
